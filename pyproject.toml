@@ -1,0 +1,80 @@
+[tool.poetry]
+name = "kapusta"
+version = "0.1.0"
+description = "A simple asynchronous task manager using sqlalchemy as a broker and result backend"
+authors = ["EliseyGodX"]
+repository = "https://github.com/EliseyGodX/Kapusta"
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlalchemy = "^2.0.38"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.1"
+flake8-annotations = "^3.1.1"
+flake8-bugbear = "^24.12.12"
+flake8-docstrings = "^1.7.0"
+flake8-isort = "^6.1.1"
+flake8-pyproject = "^1.2.3"
+flake8-in-file-ignores = "^0.3.0"
+wemake-python-styleguide = "^1.0.0"
+mccabe = "^0.7.0"
+pycodestyle = "^2.12.1"
+pyflakes = "^3.2.0"
+pytest = "^8.3.4"
+pytest-asyncio = "^0.25.3"
+pytest-dotenv = "^0.5.2"
+unify = "^0.5"
+
+[tool.flake8]
+max-line-length = 88
+ignore = [
+    "ANN002",
+    "ANN003",
+    "ANN101",
+    "ANN102",
+    "ANN401",
+    "B907",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "D401",
+    "E129",
+    "E701",
+    "E704",
+    "I001",
+    "I005",
+    "W503",
+    "WPS111",
+    "WPS202",
+    "WPS204",
+    "WPS211",
+    "WPS214",
+    "WPS217",
+    "WPS229",
+    "WPS231",
+    "WPS232",
+    "WPS237",
+    "WPS238",
+    "WPS336",
+    "WPS402",
+    "WPS420",
+    "WPS430",
+    "WPS504",
+    "WPS602",
+    "WPS604",
+]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
