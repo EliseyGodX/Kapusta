@@ -6,6 +6,21 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U test_user"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -21,5 +36,6 @@ jobs:
         poetry install
 
     - name: Run tests
-      run: |
-        poetry run pytest
+      env:
+        DB_URL: postgresql://test_user:test_password@localhost:5432/test_db
+      run: poetry run pytest
