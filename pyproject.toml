@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kapusta"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple asynchronous task manager using sqlalchemy as a broker and result backend"
 authors = ["EliseyGodX"]
 repository = "https://github.com/EliseyGodX/Kapusta"
