@@ -453,7 +453,7 @@ class Kapusta(Generic[CRUDType]):
         """
         async def executor(task: Callable[..., Coroutine]) -> None:
             error = False
-            self.logger.info(f'Task {task_id} started execution')
+            self.logger.debug(f'Task {task_id} started execution')
             for i in range(max_retry_attempts + 1):
                 try:
                     task_result = await task()
@@ -461,6 +461,7 @@ class Kapusta(Generic[CRUDType]):
                         f'Task {task_id} executed {i + 1} times'
                     )
                     error = False
+                    break
 
                 except asyncio.TimeoutError:
                     self.logger.warning(f'Task {task_id} timed out')
