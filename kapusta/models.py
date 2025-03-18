@@ -91,7 +91,7 @@ class ResultBackend(Base):
         LargeBinary, nullable=True, default=None
     )
     created_at: Mapped[datetime] = mapped_column(
-        DateTime, nullable=False, default=datetime.now()
+        DateTime, nullable=False, default=datetime.now
     )
 
     task = relationship('TaskModel', back_populates='result_backends')
